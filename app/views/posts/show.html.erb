@@ -1,0 +1,10 @@
+<h2>&nbsp;<%= @post.title %></h2>
+<br>
+<br>
+<p><%= @post.body %>
+</p>
+<hr>
+&nbsp;&nbsp;<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+&nbsp;&nbsp;<%= link_to "Delete", post_path(@post), 
+method: :delete,
+		:class => 'btn btn-danger' %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post-Ads</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+  <nav class="navbar navbar-default">
+      <a class="navbar-brand" href="">PostAds</a>
+      
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="nav navbar-nav">
+          <li><%= link_to "Home", home_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Create Post", new_post_path %></li>
+      </ul>
+        <form class="form-inline my-2 my-lg-0">
+         
+       
+        </form>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

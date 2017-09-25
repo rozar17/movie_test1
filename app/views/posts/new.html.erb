@@ -1,0 +1,20 @@
+<h1>&nbsp;Add Posts</h1>
+<%= form_for :post, url: posts_path do |f| %>
+	<% if @post.errors.full_messages.each do |msg| %>
+		<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+		<% end %>
+	<P>
+		&nbsp;&nbsp;<%= f.label :title %><br>
+		&nbsp;&nbsp;<%= f.text_field :title %>
+	</P>
+	<br>
+	<P>	
+		&nbsp;&nbsp;<%= f.label :body %><br>
+		&nbsp;&nbsp;<%= f.text_area :body %>
+	</P>
+
+	<P>
+		&nbsp;&nbsp;<%= f.submit %>
+	</P>
+<% end %>
